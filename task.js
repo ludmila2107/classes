@@ -82,14 +82,11 @@ class PrintEditionItem {
     }
    
     giveBookByName(bookName) {
-      const book = this.findBookBy("name", bookName);
-      const bookIndex = this.books.indexOf(book);
-      if (bookIndex !== -1) {
-        this.books.splice(bookIndex, 1);
-        return book;
-      } else {
-        return null;
-      }
+      const findResult = this.books.find((item) => item.name === bookName);
+      this.books = this.books.filter((item) => item.name !== bookName);
+      return findResult || null;
     }
   }
+  
+
   
